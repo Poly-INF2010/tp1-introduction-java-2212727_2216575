@@ -197,5 +197,8 @@ public class BaseShape extends Transform implements Cloneable {
     public BaseShape clone() {
         return new BaseShape(cloneCoords(coords));
     }
+    public void printCoords() {
+        System.out.println("Coords in BaseShape: " + coords);
+    }
 }
 
