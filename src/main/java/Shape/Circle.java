@@ -6,5 +6,6 @@ public class Circle extends Ellipse {
      * @param radius Radius of the Circle
      */
     public Circle(Double radius) {
+        super(radius, radius);
     }
 }
