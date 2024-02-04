@@ -126,7 +126,12 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Deep copy of all coordinates contained by this BaseShape
      */
     public Collection<Point2d> cloneCoords() {
-        return cloneCoords(coords);
+        Collection<Point2d> clone = new ArrayList<>();
+        for(Point2d coord : this.coords){
+            clone.add(coord.clone());
+        }
+
+        return clone;
     }
 
     /** TODO
@@ -137,7 +142,7 @@ public class BaseShape extends Transform implements Cloneable {
             return -(Double.MAX_VALUE);
         }
         else {
-            return coords.stream().map(Point2d::X).max(Double::compareTo).orElse(null);
+            return coords.stream().map(Point2d::X).max(Double::compare).orElse(Double.MAX_VALUE);
         }
     }
 
@@ -149,7 +154,7 @@ public class BaseShape extends Transform implements Cloneable {
             return -(Double.MAX_VALUE);
         }
         else {
-            return coords.stream().map(Point2d::Y).max(Double::compareTo).orElse(null);
+            return coords.stream().map(Point2d::Y).max(Double::compare).orElse(Double.MAX_VALUE);
         }
     }
 
@@ -168,7 +173,7 @@ public class BaseShape extends Transform implements Cloneable {
             return Double.MAX_VALUE;
         }
         else {
-            return coords.stream().map(Point2d::X).min(Double::compareTo).orElse(null);
+            return coords.stream().map(Point2d::X).min(Double::compare).orElse(Double.MIN_VALUE);
         }
     }
 
@@ -180,7 +185,7 @@ public class BaseShape extends Transform implements Cloneable {
             return Double.MAX_VALUE;
         }
         else {
-        return coords.stream().map(Point2d::Y).min(Double::compareTo).orElse(null);
+        return coords.stream().map(Point2d::Y).min(Double::compare).orElse(Double.MIN_VALUE);
         }
     }
 

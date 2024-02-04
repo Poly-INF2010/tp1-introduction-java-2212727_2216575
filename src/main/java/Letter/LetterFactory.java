@@ -3,6 +3,9 @@ package Letter;
 import Point.Point2d;
 import Shape.*;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 public final class LetterFactory {
     final static Double maxHeight = 150.0;
     final static Double maxWidth = maxHeight / 2.5;
@@ -17,7 +20,9 @@ public final class LetterFactory {
      * @return BaseShape containing the letter A
      */
     public static BaseShape create_A()  {
-        return null;
+        BaseShape letterA = new Rectangle(10.0,20.0);
+        System.out.println("Letter A Coords: " + letterA.getCoords());
+        return letterA;
     }
 
     /** TODO
@@ -25,7 +30,9 @@ public final class LetterFactory {
      * @return BaseShape containing the letter B
      */
     public static BaseShape create_B() {
-        return null;
+        BaseShape letterB = new Rectangle(10.0,20.0);
+        System.out.println("Letter B Coords: " + letterB.getCoords());
+        return letterB;
     }
 
     /** TODO
@@ -33,7 +40,8 @@ public final class LetterFactory {
      * @return BaseShape containing the letter C
      */
     public static BaseShape create_C() {
-        return null;
+        return new Rectangle(10.0, 20.0);
+
     }
 
     /** TODO
@@ -41,7 +49,7 @@ public final class LetterFactory {
      * @return BaseShape containing the letter E
      */
     public static BaseShape create_E() {
-        return null;
+        return new Rectangle(10.0, 20.0);
     }
 
     /** TODO
@@ -49,7 +57,7 @@ public final class LetterFactory {
      * @return BaseShape containing the letter H
      */
     public static BaseShape create_H() {
-        return null;
+        return new Rectangle(10.0, 20.0);
     }
 
     /** TODO
@@ -57,7 +65,7 @@ public final class LetterFactory {
      * @return BaseShape containing the letter N
      */
     public static BaseShape create_N() {
-        return null;
+        return new Rectangle(10.0, 20.0);
     }
 
     /** TODO
@@ -65,7 +73,7 @@ public final class LetterFactory {
      * @return BaseShape containing the letter O
      */
     public static BaseShape create_O() {
-        return null;
+        return new Rectangle(10.0, 20.0);
     }
 
 }
