@@ -80,10 +80,10 @@ public class Point2d extends AbstractPoint {
      * @return Rotated point
      */
     public Point2d rotate(Double angle) {
-        Double[][] rotationMatrix = {
-                { Math.cos(angle), -Math.sin(angle) },
-                { Math.sin(angle), Math.cos(angle) }
-        };
+        Double[] first = {Math.cos(angle), -Math.sin(angle)};
+        Double[] second = {Math.sin(angle), Math.cos(angle)};
+
+        Double[][] rotationMatrix = {first, second};
 
         PointOperator.rotate(vector, rotationMatrix);
         return this;
@@ -130,9 +130,6 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d clone() {
-        //vector[X] = this.clone().X();
-        //vector[Y] = this.clone().Y();
-        //return this;
         return new Point2d(this.X(), this.Y());
     }
 }

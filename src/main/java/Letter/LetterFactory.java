@@ -48,7 +48,23 @@ public final class LetterFactory {
      * @return BaseShape containing the letter C
      */
     public static BaseShape create_C() {
-        BaseShape letterC = new Circle(20.0);
+        Ellipse ellipse1 = new Ellipse(maxWidth, maxHeight);
+        Rectangle rectangle = new Rectangle(stripeThickness, halfMaxHeight+10.0);
+        Ellipse ellipse2 = new Ellipse(halfMaxWidth+10.0, halfMaxHeight+40.0);
+
+        Double[] translationRectangle = {22.0, 0.0};
+        Double[] translationCircle = {0.0, 0.0};
+
+        for (Point2d point : rectangle.getCoords()) {
+            point.translate(translationRectangle);
+        }
+
+        for (Point2d point : ellipse2.getCoords()) {
+            point.translate(translationCircle);
+        }
+
+        BaseShape letterC = ellipse1.remove(rectangle).remove(ellipse2);
+        //BaseShape letterC = new Circle(20.0);
         System.out.println("Letter C Coords: " + letterC.getCoords());
         return letterC;
     }
@@ -67,7 +83,22 @@ public final class LetterFactory {
      * @return BaseShape containing the letter H
      */
     public static BaseShape create_H() {
-        BaseShape letterH = new Circle(20.0);
+        Rectangle rectangleLeft = new Rectangle(halfStripeThickness, maxHeight);
+        Rectangle rectangleRight = new Rectangle(halfStripeThickness, maxHeight);
+        Rectangle rectangleMiddle = new Rectangle(stripeThickness+halfStripeThickness, halfStripeThickness);
+
+        Double[] translationRectangleLeft = {-25.0, 0.0};
+        Double[] translationRectangleRight = {25.0, 0.0};
+
+        for (Point2d point : rectangleLeft.getCoords()) {
+            point.translate(translationRectangleLeft);
+        }
+        for (Point2d point : rectangleRight.getCoords()) {
+            point.translate(translationRectangleRight);
+        }
+
+        BaseShape letterH = rectangleLeft.add(rectangleRight).add(rectangleMiddle);
+        //BaseShape letterH = new Circle(20.0);
         System.out.println("Letter H Coords: " + letterH.getCoords());
         return letterH;    }
 
