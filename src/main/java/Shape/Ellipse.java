@@ -13,13 +13,13 @@ public class Ellipse extends BaseShape {
      * @param heightDiameter Height of the Ellipse
      */
     public Ellipse(Double widthDiameter, Double heightDiameter) {
-        double a = widthDiameter/2; double b = heightDiameter/2;
-        double increment = 0.5;
-
-        for (double i = -a; i <= a;  i += increment){
-            for (double j = -b; j <= b; j += increment){
-                if ((i * i) / (a * a) + (j * j) / (b * b) <= 1) {
-                    add(new Point2d(i,j));
+        double halfWidth = widthDiameter/2;
+        double halfHeight = heightDiameter/2;
+        //incrementation by 0.5 pixel
+        for (double i = -halfWidth; i <= halfWidth;  i += 0.5){
+            for (double j = -halfHeight; j <= halfHeight; j += 0.5){
+                if ((i * i) / (halfWidth * halfWidth) + (j * j) / (halfHeight * halfHeight) <= 1) {
+                    add(new Point2d(i, j));
                 }
             }
         }

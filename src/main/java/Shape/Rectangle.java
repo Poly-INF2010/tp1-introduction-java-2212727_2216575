@@ -13,8 +13,11 @@ public class Rectangle extends BaseShape {
      * @param height Height of the rectangle
      */
     public Rectangle(Double width, Double height) {
-        for(double i = -width/2; i <=width/2;  i += 0.5){
-            for(double j = -height/2; j <= height/2; j += 0.5){
+        double halfwidth = width/2;
+        double halfHeight = height/2;
+        //incrementation by 0.5 pixel
+        for(double i = -halfwidth; i <= halfwidth;  i += 0.5){
+            for(double j = -halfHeight; j <= halfHeight; j += 0.5){
                 add(new Point2d(i,j));
             }
         }
