@@ -1,4 +1,5 @@
 package Point;
+import java.util.Arrays;
 
 public class Point2d extends AbstractPoint {
     private final Integer X = 0;
@@ -59,6 +60,7 @@ public class Point2d extends AbstractPoint {
         vector[X] += translateVector.X();
         vector[Y] += translateVector.Y();
         return this;
+
     }
 
     /** TODO
@@ -68,18 +70,7 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d rotate(Double[][] rotationMatrix) {
-        Double[] temp = new Double[2];
-        for (int i = 0; i < 2; i++)
-            temp[i] = 0.0;
-
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 2; j++)
-                temp[i] += rotationMatrix[i][j] * vector[j];
-        }
-
-        for (int i = 0; i < 2; i++)
-            vector[i] = temp[i];
-
+        PointOperator.rotate(vector, rotationMatrix);
         return this;
     }
 
@@ -89,12 +80,12 @@ public class Point2d extends AbstractPoint {
      * @return Rotated point
      */
     public Point2d rotate(Double angle) {
-        double cosTheta = Math.cos(angle);
-        double sinTheta = Math.sin(angle);
+        Double[][] rotationMatrix = {
+                { Math.cos(angle), -Math.sin(angle) },
+                { Math.sin(angle), Math.cos(angle) }
+        };
 
-        vector[X] = vector[X] * cosTheta - vector[Y] * sinTheta;
-        vector[Y] = vector[X] * sinTheta + vector[Y] * cosTheta;
-
+        PointOperator.rotate(vector, rotationMatrix);
         return this;
     }
 

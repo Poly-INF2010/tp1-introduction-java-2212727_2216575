@@ -20,7 +20,7 @@ public final class LetterFactory {
      * @return BaseShape containing the letter A
      */
     public static BaseShape create_A()  {
-        BaseShape letterA = new Rectangle(10.0,20.0);
+        BaseShape letterA = new Circle(20.0);
         System.out.println("Letter A Coords: " + letterA.getCoords());
         return letterA;
     }
@@ -30,9 +30,17 @@ public final class LetterFactory {
      * @return BaseShape containing the letter B
      */
     public static BaseShape create_B() {
-        BaseShape letterB = new Rectangle(10.0,20.0);
-        System.out.println("Letter B Coords: " + letterB.getCoords());
-        return letterB;
+        BaseShape circle1 = new Circle(stripeThickness).remove(new Circle(halfStripeThickness));
+        BaseShape circle2 = new Circle(stripeThickness).remove(new Circle(halfStripeThickness));
+        BaseShape rectangle = new Rectangle(halfStripeThickness, halfMaxHeight);
+
+        Point2d p2 = new Point2d(15.0, 71.0);
+        Point2d p3 = new Point2d(15.0, 10.0);
+
+        circle1.translate(circle1.getCoords(), p2);
+        circle2.translate(circle2.getCoords(), p3);
+
+        return ((rectangle.add(circle1)).add(circle2));
     }
 
     /** TODO
@@ -40,8 +48,9 @@ public final class LetterFactory {
      * @return BaseShape containing the letter C
      */
     public static BaseShape create_C() {
-        return new Rectangle(10.0, 20.0);
-
+        BaseShape letterC = new Circle(20.0);
+        System.out.println("Letter C Coords: " + letterC.getCoords());
+        return letterC;
     }
 
     /** TODO
@@ -49,23 +58,27 @@ public final class LetterFactory {
      * @return BaseShape containing the letter E
      */
     public static BaseShape create_E() {
-        return new Rectangle(10.0, 20.0);
-    }
+        BaseShape letterE = new Circle(20.0);
+        System.out.println("Letter E Coords: " + letterE.getCoords());
+        return letterE;    }
 
     /** TODO
      * Create the letter H graphically
      * @return BaseShape containing the letter H
      */
     public static BaseShape create_H() {
-        return new Rectangle(10.0, 20.0);
-    }
+        BaseShape letterH = new Circle(20.0);
+        System.out.println("Letter H Coords: " + letterH.getCoords());
+        return letterH;    }
 
     /** TODO
      * Create the letter N graphically
      * @return BaseShape containing the letter N
      */
     public static BaseShape create_N() {
-        return new Rectangle(10.0, 20.0);
+        BaseShape letterN = new Circle(20.0);
+        System.out.println("Letter N Coords: " + letterN.getCoords());
+        return letterN;
     }
 
     /** TODO
@@ -73,7 +86,8 @@ public final class LetterFactory {
      * @return BaseShape containing the letter O
      */
     public static BaseShape create_O() {
-        return new Rectangle(10.0, 20.0);
+        BaseShape letterO = new Circle(20.0);
+        System.out.println("Letter O Coords: " + letterO.getCoords());
+        return letterO;
     }
-
 }

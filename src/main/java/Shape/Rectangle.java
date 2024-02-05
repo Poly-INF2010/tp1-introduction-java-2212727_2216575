@@ -13,13 +13,11 @@ public class Rectangle extends BaseShape {
      * @param height Height of the rectangle
      */
     public Rectangle(Double width, Double height) {
-        Collection<Point2d> rectangleCoords = new ArrayList<>();
-        for (int i = 0; i <= width; i++) {
-            for (int j = 0; j <= height; j++) {
-                rectangleCoords.add(new Point2d(width,height));
+        for(double i = -width/2; i <=width/2;  i += 0.5){
+            for(double j = -height/2; j <= height/2; j += 0.5){
+                add(new Point2d(i,j));
             }
         }
-        BaseShape updatedShape = addAll(rectangleCoords);
     }
 
     /** TODO

@@ -13,13 +13,16 @@ public class Ellipse extends BaseShape {
      * @param heightDiameter Height of the Ellipse
      */
     public Ellipse(Double widthDiameter, Double heightDiameter) {
-        Collection<Point2d> ellipseCoords = new ArrayList<>();
-        for (int i = 0; i <= widthDiameter; i++) {
-            for (int j = 0; j <= heightDiameter; j++) {
-                ellipseCoords.add(new Point2d(widthDiameter,heightDiameter));
+        double a = widthDiameter/2; double b = heightDiameter/2;
+        double increment = 0.5;
+
+        for (double i = -a; i <= a;  i += increment){
+            for (double j = -b; j <= b; j += increment){
+                if ((i * i) / (a * a) + (j * j) / (b * b) <= 1) {
+                    add(new Point2d(i,j));
+                }
             }
         }
-        BaseShape updatedShape = addAll(ellipseCoords);
     }
 
     /** TODO
