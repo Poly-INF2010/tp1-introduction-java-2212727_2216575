@@ -84,7 +84,7 @@ public final class LetterFactory {
             point.translate(translationCircle);
         }
 
-        //adding everything together
+        //removing the rectangle and ellispe from the main ellispe to create the C
         return ellipse1.remove(rectangle).remove(ellipse2);
     }
 
